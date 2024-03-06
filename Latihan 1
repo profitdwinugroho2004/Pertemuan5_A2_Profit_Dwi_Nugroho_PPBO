@@ -1,0 +1,21 @@
+class Hewan:
+    def bersuara(self):
+        pass
+
+class Kucing(Hewan):
+    def bersuara(self):
+        return "Meow!"
+
+class Sapi(Hewan):
+    def bersuara(self):
+        return "Mooo!"
+
+def main():
+    hewan1 = Kucing()
+    hewan2 = Sapi()
+
+    print("Hewan Kucing bersuara:", hewan1.bersuara())
+    print("Hewan Sapi bersuara:", hewan2.bersuara())
+
+if __name__ == "__main__":
+    main()
