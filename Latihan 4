@@ -7,12 +7,12 @@ class Barang:
         print('Banyaknya penjualan:', kuantitas.qty_jual, 'buah')
         return self.harga_satuan * kuantitas.qty_jual
 
-    def __add__(self, other):
+    def __truediv__(self, other):
         if isinstance(other, Barang):
-            print('Melakukan penambahan harga satuan:', self.merek, '+', other.merek)
-            return self.harga_satuan + other.harga_satuan
+            print('Melakukan pembagian harga satuan:', self.merek, '/', other.merek)
+            return self.harga_satuan / other.harga_satuan
         else:
-            raise ValueError("Operasi penambahan hanya dapat dilakukan dengan objek Barang.")
+            raise ValueError("Operasi pembagian hanya dapat dilakukan dengan objek Barang.")
 
 class Penjualan:
     def __init__(self, merek, qty_jual):
@@ -20,13 +20,13 @@ class Penjualan:
         self.qty_jual = qty_jual
 
 # Membuat objek Barang dan Penjualan
-vivo23 = Barang("Vivo23", 2140)
-redmiNot11 = Barang("Redmi Not 11", 3500)
-qty_mei = Penjualan("Vivo23", 20)
+oppoY10 = Barang("OppoY10", 3019)
+samsungM20 = Barang("Samsung M20", 10000)
+qty_oktober = Penjualan("OppoY10", 100)
 
 # Menggunakan operator overloading untuk perkalian
-print(f"Total penjualan {vivo23.merek}: {vivo23 * qty_mei} ribu")
+print(f"Total penjualan {oppoY10.merek}: {oppoY10 * qty_oktober} ribu")
 
-# Menggunakan operator overloading untuk penambahan
-total_harga = vivo23 + redmiNot11
-print(f"Total harga penambahan: {total_harga} ribu")
+# Menggunakan operator overloading untuk pembagian
+result_division = oppoY10 / samsungM20
+print(f"Pembagian harga satuan {oppoY10.merek} dan {samsungM20.merek}: {result_division}")
