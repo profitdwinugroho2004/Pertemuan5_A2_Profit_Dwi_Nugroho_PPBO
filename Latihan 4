@@ -1,0 +1,32 @@
+class Barang:
+    def __init__(self, merek, harga_satuan):
+        self.merek = merek
+        self.harga_satuan = harga_satuan  # dalam ribu
+
+    def __mul__(self, kuantitas):
+        print('Banyaknya penjualan:', kuantitas.qty_jual, 'buah')
+        return self.harga_satuan * kuantitas.qty_jual
+
+    def __add__(self, other):
+        if isinstance(other, Barang):
+            print('Melakukan penambahan harga satuan:', self.merek, '+', other.merek)
+            return self.harga_satuan + other.harga_satuan
+        else:
+            raise ValueError("Operasi penambahan hanya dapat dilakukan dengan objek Barang.")
+
+class Penjualan:
+    def __init__(self, merek, qty_jual):
+        self.merek = merek
+        self.qty_jual = qty_jual
+
+# Membuat objek Barang dan Penjualan
+vivo23 = Barang("Vivo23", 2140)
+redmiNot11 = Barang("Redmi Not 11", 3500)
+qty_mei = Penjualan("Vivo23", 20)
+
+# Menggunakan operator overloading untuk perkalian
+print(f"Total penjualan {vivo23.merek}: {vivo23 * qty_mei} ribu")
+
+# Menggunakan operator overloading untuk penambahan
+total_harga = vivo23 + redmiNot11
+print(f"Total harga penambahan: {total_harga} ribu")
